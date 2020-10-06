@@ -3,16 +3,11 @@ from inetwindow import MainWindow
 import time
 import _thread
 
-# for i in range(10):
-#     ping = Ping('8.8.8.8')
-#     print(ping.response_time, ping.ttl)
-#     time.sleep(1)
-
 
 def primary_test(main_gui):
     while True:
         ping_primary = Ping('8.8.8.8')
-        print(ping_primary.response)
+        # print(ping_primary.response)
         if ping_primary.response['is_successful']:
             parameters = {'internet_status': 'Online', 'primary_host': {'name': ping_primary.host, 'ping_response': ping_primary.response['details']['response_time']}}
         else:
@@ -24,7 +19,7 @@ def primary_test(main_gui):
 def secondary_test(main_gui):
     while True:
         ping_secondary = Ping('8.8.4.4')
-        print(ping_secondary.response)
+        # print(ping_secondary.response)
         if ping_secondary.response['is_successful']:
             parameters = {'secondary_host': {'name': ping_secondary.host, 'ping_response': ping_secondary.response['details']['response_time']}}
         else:
